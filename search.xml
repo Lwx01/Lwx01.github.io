@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>MarkDown语法</title>
+      <link href="/2023/04/29/MarkDown%E8%AF%AD%E6%B3%95/"/>
+      <url>/2023/04/29/MarkDown%E8%AF%AD%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line">以此类推，最多六级标题</span><br></pre></td></tr></table></figure><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">斜体：<span class="emphasis">*正文*</span>或 <span class="emphasis">_正文_</span></span><br><span class="line">加粗：<span class="strong">**正文**</span> 或 <span class="strong">__正文__</span></span><br><span class="line">加粗斜体：<span class="strong">**<span class="emphasis">*正文*</span>**</span> 或 <span class="strong">__<span class="emphasis">_正文_</span>__</span></span><br></pre></td></tr></table></figure><h2 id="删除线、下划线、分割线"><a href="#删除线、下划线、分割线" class="headerlink" title="删除线、下划线、分割线"></a>删除线、下划线、分割线</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">删除线：~~正文~~</span><br><span class="line">下划线：<span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>正文<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br><span class="line">分割线：<span class="strong">*** 或者 ---</span></span><br></pre></td></tr></table></figure><h2 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 1</span></span><br><span class="line"><span class="quote">&gt; 2</span></span><br><span class="line"></span><br><span class="line">嵌套区块：</span><br><span class="line"><span class="quote">&gt; 1</span></span><br><span class="line">&gt;&gt; 1</span><br><span class="line">&gt;&gt;&gt; 1</span><br></pre></td></tr></table></figure><h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 项目</span><br><span class="line"><span class="bullet">2.</span> 项目</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 项目</span><br><span class="line"><span class="bullet">1.</span> 项目</span><br><span class="line"><span class="bullet">1.</span> 项目</span><br></pre></td></tr></table></figure><h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> 项目</span><br><span class="line"><span class="bullet">-</span> 项目</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 项目</span><br><span class="line"><span class="bullet">-</span> 项目</span><br><span class="line"><span class="bullet">-</span> 项目</span><br><span class="line">可以通过* - + 开头</span><br></pre></td></tr></table></figure><h2 id="检查列表"><a href="#检查列表" class="headerlink" title="检查列表"></a>检查列表</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> [] 计划</span><br><span class="line"><span class="bullet">-</span> [x] 完成</span><br></pre></td></tr></table></figure><h2 id="注脚"><a href="#注脚" class="headerlink" title="注脚"></a>注脚</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在我后面添加注脚[^1]</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">我是注脚的具体内容</span></span><br></pre></td></tr></table></figure><h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">一般链接：</span><br><span class="line">[<span class="string">链接名</span>](<span class="link">链接地址</span>)</span><br><span class="line"></span><br><span class="line">引用类型链接：</span><br><span class="line">[<span class="string">链接名</span>][<span class="symbol">引用名</span>]</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">[<span class="symbol">引用名</span>]: <span class="link">链接地址</span></span><br></pre></td></tr></table></figure><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片描述，可不写，但要有中括号</span>](<span class="link">url</span>)</span><br></pre></td></tr></table></figure><h2 id="键盘按键"><a href="#键盘按键" class="headerlink" title="键盘按键"></a>键盘按键</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>ctrl<span class="language-xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span> + <span class="language-xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>c<span class="language-xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span></span><br></pre></td></tr></table></figure><p>效果：ctrl</kbd> + <kbd>c</kbd></p><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">| 字段1 | 字段2 | 字段3 |</span><br><span class="line">| :---  | :---: | ---: |</span><br><span class="line">|居左 | 居中 | 居右|</span><br><span class="line">|居左 | 居中 | 居右|</span><br><span class="line">|居左 | 居中 | 居右|</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">```java</span></span><br><span class="line"><span class="code">```</span>markdwon</span><br><span class="line"><span class="code">```代码语言</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 小记 </category>
+          
+          <category> Markdown </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MarkDown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>开篇</title>
+      <link href="/2023/04/29/%E5%BC%80%E7%AF%87/"/>
+      <url>/2023/04/29/%E5%BC%80%E7%AF%87/</url>
+      
+        <content type="html"><![CDATA[<p>​测试文本。</p><p>搭建这个博客时，不出意外的出了点小意外。这个博客是为了记录点知识，当作笔记使用，虽然自己一直没有做笔记的习惯。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2023/04/27/hello-world/"/>
+      <url>/2023/04/27/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+    
+    
+    <entry>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+  
+</search>
