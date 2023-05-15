@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Hexo图片显示问题</title>
+      <link href="/2023/05/15/Hexo%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/"/>
+      <url>/2023/05/15/Hexo%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h2 id="第一种解决方式"><a href="#第一种解决方式" class="headerlink" title="第一种解决方式"></a>第一种解决方式</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-image-link --save</span><br></pre></td></tr></table></figure><h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>​在 _config.yml 中启用<code>post_asset_folder: true</code>选项，将Markdown语法的图片路径转换为asset_img的方式，使图片能够在使用typora编辑和hexo预览发布时都能正常显示。</p><p>​当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们</p><p>​有关  <code>post_asset_folder</code>资源文件夹可查看<a href="https://hexo.io/zh-cn/docs/asset-folders">资源文件夹 | Hexo</a></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line"></span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure><h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>​例如： <code>image.jpg</code> 位置为 <code>/2023/01/02/foo/image.jpg</code> ，这表示它是 <code>/2023/01/02/foo/</code> 文章的一张资源图片，</p><p> <code>![label](image.jpg)</code> 将会被解析为 <code>&lt;img src=&quot;/2023/01/02/foo/image.jpg&quot;&gt;</code> 。</p><h2 id="第二种解决方式"><a href="#第二种解决方式" class="headerlink" title="第二种解决方式"></a>第二种解决方式</h2><p>​将本地图片上传到Github、Gitee等网站，生成图片链接，然后再通过该链接引用图片。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+          <category> 问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>RabbitMQ环境搭建</title>
       <link href="/2023/05/07/RabbitMQ%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
       <url>/2023/05/07/RabbitMQ%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
