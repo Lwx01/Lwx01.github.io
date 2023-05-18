@@ -44,92 +44,57 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo图片显示问题</title>
-    <url>/2023/05/15/Hexo%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="第一种解决方式"><a href="#第一种解决方式" class="headerlink" title="第一种解决方式"></a>第一种解决方式</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-image-link --save</span><br></pre></td></tr></table></figure>
+    <title>Docker环境搭建</title>
+    <url>/2023/05/18/Docker%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<p>​	在CentOS-7下搭建Docker环境，参考官方文档 <a href="https://docs.docker.com/engine/install/centos/">Install Docker Engine on CentOS</a></p>
+<h2 id="配置仓库"><a href="#配置仓库" class="headerlink" title="配置仓库"></a>配置仓库</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install -y yum-utils</span><br><span class="line">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>​	在 _config.yml 中启用<code>post_asset_folder: true</code>选项，将Markdown语法的图片路径转换为asset_img的方式，使图片能够在使用typora编辑和hexo预览发布时都能正常显示。</p>
-<p>​	当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们</p>
-<p>​	有关  <code>post_asset_folder</code>资源文件夹可查看	<a href="https://hexo.io/zh-cn/docs/asset-folders">资源文件夹 | Hexo</a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
+<h2 id="安装Docker引擎"><a href="#安装Docker引擎" class="headerlink" title="安装Docker引擎"></a>安装Docker引擎</h2><h3 id="安装最新版本"><a href="#安装最新版本" class="headerlink" title="安装最新版本"></a>安装最新版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>​	当创建一篇文章时，再 .&#x2F;source&#x2F;_posts&#x2F; 下会自动创建同名文件夹，引用图片链接为  <code>文件夹名称/image.jpg</code> </p>
-<p>​	例如： <code>image.jpg</code> 位置为 <code>/foo/image.jpg</code> ，这表示它是 <code>/foo/</code> 文章的一张资源图片，引用该图片 <code>foo/image.jpg</code> </p>
-<h2 id="第二种解决方式"><a href="#第二种解决方式" class="headerlink" title="第二种解决方式"></a>第二种解决方式</h2><p>​	将本地图片上传到Github、Gitee等网站，生成图片链接，然后再通过该链接引用图片。</p>
+<h3 id="安装特定版本"><a href="#安装特定版本" class="headerlink" title="安装特定版本"></a>安装特定版本</h3><p>​	返回的列表取决于启用的存储库，并且是特定的 到你的 CentOS 版本（ <code>.el8</code> 在本例中由后缀指示）。</p>
+<p>​	通过其完全限定的软件包名称安装特定版本，即 软件包名称 （<code>docker-ce</code>） 加上版本字符串（第 2 列）， 用连字符 （） 分隔<code>-</code>。例如，<code>docker-ce-3:23.0.5-1.el8</code>.</p>
+<p>​	替换为 <code>&lt;VERSION_STRING&gt;</code> 所需版本，然后运行以下命令 要安装的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install docker-ce-&lt;VERSION_STRING&gt; docker-ce-cli-&lt;VERSION_STRING&gt; containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="启动Docker"><a href="#启动Docker" class="headerlink" title="启动Docker"></a>启动Docker</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="检验安装成功"><a href="#检验安装成功" class="headerlink" title="检验安装成功"></a>检验安装成功</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+
+<p>​	此命令下载测试映像并在容器中运行它。当容器运行，它会打印确认消息并退出。</p>
+<p>​	您现在已成功安装并启动 Docker 引擎。</p>
+<h2 id="配置镜像加速器"><a href="#配置镜像加速器" class="headerlink" title="配置镜像加速器"></a>配置镜像加速器</h2><p>​	使用阿里云容器镜像服务，先创建个人实例，然后找到镜像工具中的镜像加速器：  <a href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">容器镜像服务 (aliyun.com)</a> </p>
+<p>​	针对Docker客户端版本大于 1.10.0 的用户</p>
+<p>您可以通过修改daemon配置文件&#x2F;etc&#x2F;docker&#x2F;daemon.json来使用加速器</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;加速器地址&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>博客</category>
-        <category>问题</category>
+        <category>Docker</category>
+        <category>环境搭建</category>
       </categories>
       <tags>
-        <tag>博客</tag>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
-    <title>MarkDown语法</title>
-    <url>/2023/04/29/MarkDown%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line">以此类推，最多六级标题</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜体：<span class="emphasis">*正文*</span>	或 <span class="emphasis">_正文_</span></span><br><span class="line">加粗：<span class="strong">**正文**</span> 或 <span class="strong">__正文__</span></span><br><span class="line">加粗斜体：<span class="strong">**<span class="emphasis">*正文*</span>**</span> 或 <span class="strong">__<span class="emphasis">_正文_</span>__</span></span><br><span class="line">标注：<span class="code">`&lt;正文&gt;`</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="删除线、下划线、分割线"><a href="#删除线、下划线、分割线" class="headerlink" title="删除线、下划线、分割线"></a>删除线、下划线、分割线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">删除线：~~正文~~</span><br><span class="line">下划线：<span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>正文<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br><span class="line">分割线：<span class="strong">*** 或者 ---</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; 1</span></span><br><span class="line"><span class="quote">&gt; 2</span></span><br><span class="line"></span><br><span class="line">嵌套区块：</span><br><span class="line"><span class="quote">&gt; 1</span></span><br><span class="line">&gt;&gt; 1</span><br><span class="line">&gt;&gt;&gt; 1</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 项目</span><br><span class="line"><span class="bullet">2.</span> 项目</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 项目</span><br><span class="line"><span class="bullet">	1.</span> 项目</span><br><span class="line"><span class="bullet">		1.</span> 项目</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 项目</span><br><span class="line"><span class="bullet">-</span> 项目</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 项目</span><br><span class="line"><span class="bullet">	-</span> 项目</span><br><span class="line"><span class="bullet">		-</span> 项目</span><br><span class="line">可以通过* - + 开头</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="检查列表"><a href="#检查列表" class="headerlink" title="检查列表"></a>检查列表</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> [] 计划</span><br><span class="line"><span class="bullet">-</span> [x] 完成</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="注脚"><a href="#注脚" class="headerlink" title="注脚"></a>注脚</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">在我后面添加注脚[^1]</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">我是注脚的具体内容</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">一般链接：</span><br><span class="line">[<span class="string">链接名</span>](<span class="link">链接地址</span>)</span><br><span class="line"></span><br><span class="line">引用类型链接：</span><br><span class="line">[<span class="string">链接名</span>][<span class="symbol">引用名</span>]</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">[<span class="symbol">引用名</span>]: <span class="link">链接地址</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">{% asset_img "span>" "<span class="string">label</span>" %}</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="键盘按键"><a href="#键盘按键" class="headerlink" title="键盘按键"></a>键盘按键</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>ctrl<span class="language-xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span> + <span class="language-xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>c<span class="language-xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p>效果：<kbd>ctrl</kbd> + <kbd>c</kbd></p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">| 字段1 | 字段2 | 字段3 |</span><br><span class="line">| :---  | :---: | ---: |</span><br><span class="line">|居左 | 居中 | 居右|</span><br><span class="line">|居左 | 居中 | 居右|</span><br><span class="line">|居左 | 居中 | 居右|</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">```java</span></span><br><span class="line"><span class="code">```</span>markdwon</span><br><span class="line"><span class="code">```代码语言</span></span><br></pre></td></tr></table></figure>
+    <title>开篇</title>
+    <url>/2023/04/29/%E5%BC%80%E7%AF%87/</url>
+    <content><![CDATA[<p>​	测试文本。</p>
+<p>搭建这个博客时，不出意外的出了点小意外。这个博客是为了记录点知识，当作笔记使用，虽然自己一直没有做笔记的习惯。</p>
+<span id="more"></span>
 
 
 
 ]]></content>
-      <categories>
-        <category>小记</category>
-        <category>Markdown</category>
-      </categories>
       <tags>
-        <tag>MarkDown</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -229,35 +194,92 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/04/27/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <title>Hexo图片显示问题</title>
+    <url>/2023/05/15/Hexo%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="第一种解决方式"><a href="#第一种解决方式" class="headerlink" title="第一种解决方式"></a>第一种解决方式</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-image-link --save</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>​	在 _config.yml 中启用<code>post_asset_folder: true</code>选项，将Markdown语法的图片路径转换为asset_img的方式，使图片能够在使用typora编辑和hexo预览发布时都能正常显示。</p>
+<p>​	当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们</p>
+<p>​	有关  <code>post_asset_folder</code>资源文件夹可查看	<a href="https://hexo.io/zh-cn/docs/asset-folders">资源文件夹 | Hexo</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>​	当创建一篇文章时，再 .&#x2F;source&#x2F;_posts&#x2F; 下会自动创建同名文件夹，引用图片链接为  <code>文件夹名称/image.jpg</code> </p>
+<p>​	例如： <code>image.jpg</code> 位置为 <code>/foo/image.jpg</code> ，这表示它是 <code>/foo/</code> 文章的一张资源图片，引用该图片 <code>foo/image.jpg</code> </p>
+<h2 id="第二种解决方式"><a href="#第二种解决方式" class="headerlink" title="第二种解决方式"></a>第二种解决方式</h2><p>​	将本地图片上传到Github、Gitee等网站，生成图片链接，然后再通过该链接引用图片。</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>开篇</title>
-    <url>/2023/04/29/%E5%BC%80%E7%AF%87/</url>
-    <content><![CDATA[<p>​	测试文本。</p>
-<p>搭建这个博客时，不出意外的出了点小意外。这个博客是为了记录点知识，当作笔记使用，虽然自己一直没有做笔记的习惯。</p>
-<span id="more"></span>
-
-
-
-]]></content>
+      <categories>
+        <category>博客</category>
+        <category>问题</category>
+      </categories>
       <tags>
         <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MarkDown语法</title>
+    <url>/2023/04/29/MarkDown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line">以此类推，最多六级标题</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜体：<span class="emphasis">*正文*</span>	或 <span class="emphasis">_正文_</span></span><br><span class="line">加粗：<span class="strong">**正文**</span> 或 <span class="strong">__正文__</span></span><br><span class="line">加粗斜体：<span class="strong">**<span class="emphasis">*正文*</span>**</span> 或 <span class="strong">__<span class="emphasis">_正文_</span>__</span></span><br><span class="line">标注：<span class="code">`&lt;正文&gt;`</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="删除线、下划线、分割线"><a href="#删除线、下划线、分割线" class="headerlink" title="删除线、下划线、分割线"></a>删除线、下划线、分割线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">删除线：~~正文~~</span><br><span class="line">下划线：<span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>正文<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br><span class="line">分割线：<span class="strong">*** 或者 ---</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; 1</span></span><br><span class="line"><span class="quote">&gt; 2</span></span><br><span class="line"></span><br><span class="line">嵌套区块：</span><br><span class="line"><span class="quote">&gt; 1</span></span><br><span class="line">&gt;&gt; 1</span><br><span class="line">&gt;&gt;&gt; 1</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 项目</span><br><span class="line"><span class="bullet">2.</span> 项目</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 项目</span><br><span class="line"><span class="bullet">	1.</span> 项目</span><br><span class="line"><span class="bullet">		1.</span> 项目</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 项目</span><br><span class="line"><span class="bullet">-</span> 项目</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 项目</span><br><span class="line"><span class="bullet">	-</span> 项目</span><br><span class="line"><span class="bullet">		-</span> 项目</span><br><span class="line">可以通过* - + 开头</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="检查列表"><a href="#检查列表" class="headerlink" title="检查列表"></a>检查列表</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> [] 计划</span><br><span class="line"><span class="bullet">-</span> [x] 完成</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="注脚"><a href="#注脚" class="headerlink" title="注脚"></a>注脚</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">在我后面添加注脚[^1]</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">我是注脚的具体内容</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">一般链接：</span><br><span class="line">[<span class="string">链接名</span>](<span class="link">链接地址</span>)</span><br><span class="line"></span><br><span class="line">引用类型链接：</span><br><span class="line">[<span class="string">链接名</span>][<span class="symbol">引用名</span>]</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">[<span class="symbol">引用名</span>]: <span class="link">链接地址</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">{% asset_img "span>" "<span class="string">label</span>" %}</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="键盘按键"><a href="#键盘按键" class="headerlink" title="键盘按键"></a>键盘按键</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>ctrl<span class="language-xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span> + <span class="language-xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>c<span class="language-xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>效果：<kbd>ctrl</kbd> + <kbd>c</kbd></p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">| 字段1 | 字段2 | 字段3 |</span><br><span class="line">| :---  | :---: | ---: |</span><br><span class="line">|居左 | 居中 | 居右|</span><br><span class="line">|居左 | 居中 | 居右|</span><br><span class="line">|居左 | 居中 | 居右|</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">```java</span></span><br><span class="line"><span class="code">```</span>markdwon</span><br><span class="line"><span class="code">```代码语言</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>小记</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>MarkDown</tag>
       </tags>
   </entry>
 </search>
